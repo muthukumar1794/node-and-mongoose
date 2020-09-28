@@ -1,0 +1,27 @@
+<%- include('../includes/header.ejs') %>
+
+<div class="col-sm-12" style="float:left">
+    <div class="product-image-wrapper">
+      <div class="single-products">
+        <div class="productinfo text-center"  style="margin: 10% 27%;">
+            <div style="float: left;">
+            <img src="<%=product.imagePath%>" alt="website template image" class="content-image" style="height:180px"/>
+        </div>
+          <h2 style="padding: 15px;">Rs.<%=product.amount%></h2>
+          <p><%=product.title%></p>
+          <p><%=product.specification%></p>
+          <a href="/admin/edit-product/<%=product._id%>?edit=true" class="btn btn-primary add-to-cart" style="float:left;
+    margin-left: 47px">Edit</a>
+    <form action="/admin/product/delete/<%=product._id%>" method="post">
+    <button type="submit" class="btn btn-primary add-to-cart" style="float:left;
+    margin-left: 47px"><i class="fa fa-shopping-cart"></i>Delete</button>
+       
+       
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<%- include('../includes/end.ejs') %>

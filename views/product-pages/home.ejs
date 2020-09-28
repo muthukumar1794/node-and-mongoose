@@ -1,0 +1,36 @@
+<%- include('../includes/shop-home.ejs') %>
+<div>
+
+    <h1 class="page-header text-center" style="padding:30px">Latest Launches</h1>
+    <%if(products.length>0){%>
+    <div class="col-sm-12">
+      <%for(let product of products){%> 
+    
+    <div class="col-sm-3" style="float:left">
+        <div class="product-image-wrapper">
+          <div class="single-products">
+            <div class="productinfo text-center" style="padding: 30px 0;">
+                <div>
+                <img src="/<%=product.imagePath%>" alt="website template image" class="content-image" style="height:180px"/>
+            </div>
+        
+              <p style="padding: 15px 0 0 0"><%=product.title%></p>
+            
+             
+              <%- include('../includes/add-to-cart.ejs',{product:product}) %>
+             
+              <form action="/admin/product/details/<%=product._id%>" method="get">
+              <button class="btn btn-secondary add-to-cart"><i class="fa fa-shopping-cart"></i>Details</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+        <%}%>
+    </div>
+    <%} else {%>
+        <h4 class="text-center" >No Products added yet</h4>
+                <%}%>
+    </div>
+<%- include('../includes/shop-end.ejs') %>

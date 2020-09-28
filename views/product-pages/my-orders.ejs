@@ -1,0 +1,22 @@
+<%- include('../includes/shop-home.ejs') %>
+<hr>
+<div class="cart">
+   
+<%if(orders.length > 0){%>
+    <%orders.forEach(myorders=>{%>
+    <h4>#<%=myorders._id%>     <a href="/shop/order/invoice/<%=myorders._id%>">invoice</a></h4>
+
+    <%myorders.order.forEach(p=>{%>
+        <p><%=myorders.userID.name%></p>
+<h5 style="padding: 18px;text-align: center;background: #ececec;">Product:<%=p.products.title%> Quantity:<%=p.quantity%>   </h5>
+<%})%>
+<%})%>
+
+    <%} else {%>
+        
+    <h1>no products in cart</h1>
+        <%}%>
+
+    </div>
+
+<%- include('../includes/shop-end.ejs') %>

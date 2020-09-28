@@ -1,0 +1,22 @@
+<%- include('../includes/header.ejs') %>
+
+
+<form action='/admin/<%if(editing){%>edit-user<%} else{%>add-user<%}%>' method="post" class="form-horizontal jumbotron text-center">
+
+     <h3 class="col-sm-12"><%if(editing){%>Edit User<%} else{%>Add User<%}%></h3>
+     <div class="col-sm-12 form-group">
+        <label for="title" class="col-sm-4">Email</label>
+     <input type="email" name="email" class="col-sm-8 form-group" value="<%if(editing){%><%=user.email%><%}%>"/>
+     </div>
+     <div class="col-sm-12 form-group">
+        <label for="specification" class="col-sm-4">Password</label>
+        <input type="text" name="password" class="col-sm-8 form-group" value="<%if(editing){%><%=user.password%><%}%>"/>
+        </div>
+        
+                <%if(editing){%><input type="hidden" name="prodid" value="<%=user._id%>"><%}%>
+     <div class="col-sm-12 form-group">
+        <button type="submit" class="btn btn-success"><%if(editing){%>Edit User<%} else{%>Add User<%}%></button>
+     </div>
+ </form>
+
+ <%- include('../includes/end.ejs') %>

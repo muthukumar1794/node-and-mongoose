@@ -1,0 +1,29 @@
+<%- include('../includes/header.ejs') %>
+
+
+<form action='/admin/<%if(editing){%>edit-product-data<%} else{%>add-product-data<%}%>' method="post" class="form-horizontal jumbotron text-center" enctype="multipart/form-data">
+
+     <h3 class="col-sm-12"><%if(editing){%>Edit Product<%} else{%>Add Product<%}%></h3>
+     <div class="col-sm-12 form-group">
+        <label for="title" class="col-sm-4">Title</label>
+     <input type="text" name="title" class="col-sm-8 form-group" value="<%if(editing){%><%=product.title%><%}%>"/>
+     </div>
+     <div class="col-sm-12 form-group">
+        <label for="specification" class="col-sm-4">Specification</label>
+        <input type="text" name="specification" class="col-sm-8 form-group" value="<%if(editing){%><%=product.specification%><%}%>"/>
+        </div>
+        <div class="col-sm-12 form-group">
+            <label for="amount" class="col-sm-4">Amount</label>
+            <input type="text" name="amount" class=" col-sm-8 form-group" value="<%if(editing){%><%=product.amount%><%}%>"/>
+            </div>
+            <div class="col-sm-12 form-group">
+                <label for="imagePath" class="col-sm-4">ImagePath</label>
+                <input type="file" name="imagePath" class=" col-sm-8 form-group"/>
+                </div>
+                <%if(editing){%><input type="hidden" name="prodid" value="<%=product._id%>"><%}%>
+     <div class="col-sm-12 form-group">
+        <button type="submit" class="btn btn-success"><%if(editing){%>Edit Product<%} else{%>Add Product<%}%></button>
+     </div>
+ </form>
+
+ <%- include('../includes/end.ejs') %>

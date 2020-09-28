@@ -1,0 +1,26 @@
+<%- include('../includes/shop-home.ejs') %>
+<hr>
+
+
+<div class="cart">
+   
+<%if(cartproducts.cart.items.length > 0){%>
+    <p>user:<%=cartproducts.name%> </p>
+<%cartproducts.cart.items.forEach(p=>{%>
+
+    <span><h5 style="padding: 18px;text-align: center;background: #ececec;">Product:<%=p.productID.title%> Quantity:<%=p.quantity%>    <a style="background:white;border:1px solid #57c9ff;" href="/shop/orders/<%=p._id%>" class="btn btn-white">Delete</a></h5>
+</span>
+<%})%>
+<div class="text-center " style="margin: 0 auto;width: 86px;background:#ff4d4d;border-radius: 6px;">
+    <form action="/shop/checkout" method="post">
+    <button type="submit" style="text-align: center;" class="btn" href="">checkout</button>
+</form>
+</div>
+    <%} else {%>
+        
+    <h1>no products in cart</h1>
+        <%}%>
+
+    </div>
+
+<%- include('../includes/shop-end.ejs') %>
